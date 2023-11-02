@@ -32,7 +32,7 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER'
+DEBUG = False
 
 ALLOWED_HOSTS = ['kem-instagram-clone.onrender.com']
 
@@ -188,9 +188,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# if not DEBUG:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 cloudinary.config(
