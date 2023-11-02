@@ -18,6 +18,12 @@ import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+
+
+env = environ.Env()
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -26,9 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -121,16 +127,26 @@ WSGI_APPLICATION = 'Instagramclone.wsgi.application'
 #     }
 # }
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'InstagramCloneDB',
+#         'USER': 'postgres',
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'InstagramCloneDB',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default' : dj_database_url.parse(env('DATABASE_URL'))
 }
+
+
+
 
 
 
