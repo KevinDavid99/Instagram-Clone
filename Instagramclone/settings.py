@@ -59,7 +59,6 @@ AUTH_USER_MODEL = 'instaclone.User'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://kem-instagram-clone.onrender.com',
     'https://kem-instagram-clone.netlify.app'
 ]
 
@@ -87,7 +86,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
