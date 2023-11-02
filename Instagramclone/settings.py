@@ -32,9 +32,9 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['kem-instagram-clone.onrender.com']
+ALLOWED_HOSTS = ['https://kem-instagram-clone.onrender.com']
 
 
 # Application definition
@@ -59,13 +59,14 @@ AUTH_USER_MODEL = 'instaclone.User'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://kem-instagram-clone.netlify.app'
+    'https://kem-instagram-clone.netlify.app',
+    'https://kem-instagram-clone.onrender.com'
 ]
 
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':(
-        'knox.auth.TokenAuthentication',
+        'knox.auth.TokenAuthentication',   
     )
 }
 
