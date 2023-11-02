@@ -32,9 +32,9 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'RENDER'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://kem-instagram-clone.onrender.com']
 
 
 # Application definition
@@ -87,6 +87,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -186,6 +187,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 cloudinary.config(
     cloud_name = os.environ.get('CLOUD_NAME'),
