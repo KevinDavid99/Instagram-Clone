@@ -14,6 +14,13 @@ from rest_framework.settings import api_settings
 import os
 from pathlib import Path
 import cloudinary
+
+
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +35,7 @@ SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["instagram-clone-api-etqy.onrender.com"]
 
 
 # Application definition
@@ -137,11 +144,8 @@ WSGI_APPLICATION = 'Instagramclone.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default' : dj_database_url.parse(os.environ.get('RENDER_EXT_DB_URL'))
+    'default' : dj_database_url.parse(env('EXT_DATABASE_URL'))
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
