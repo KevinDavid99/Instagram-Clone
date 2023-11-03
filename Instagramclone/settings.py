@@ -18,12 +18,12 @@ import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
+# import environ
 
 
-env = environ.Env()
+# env = environ.Env()
 
-environ.Env.read_env()
+# environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-x(65#7r%-nqw+pz&cu@_=^h!p7cdq@ej&cvgi_977i$8hqvh2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['kem-instagram-clone.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -129,32 +129,16 @@ WSGI_APPLICATION = 'Instagramclone.wsgi.application'
 # }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'InstagramCloneDB',
-#         'USER': 'postgres',
-#         'PASSWORD': os.environ.get('DB_PASSWORD'),
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-# import dj_database_url
-
-# DATABASES = {
-#     'default' : dj_database_url.parse(env('DATABASE_URL'))
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dpg-cl17euqs1bgc73fk2eog-a',
-        'USER': 'instagramclonedatabase_user',
-        'PASSWORD': 'C44gTv7Uvq6W4Ube0HDBI9WIOxDoOJpv',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'InstagramCloneDB',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+}   
 
 
 
@@ -196,10 +180,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
-# if not DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 cloudinary.config(
