@@ -140,10 +140,20 @@ WSGI_APPLICATION = 'Instagramclone.wsgi.application'
 #     }
 # }
 
-import dj_database_url
+# import dj_database_url
+
+# DATABASES = {
+#     'default' : dj_database_url.parse(env('DATABASE_URL'))
+# }
 
 DATABASES = {
-    'default' : dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dpg-cl17euqs1bgc73fk2eog-a',
+        'USER': 'instagramclonedatabase_user',
+        'PASSWORD': 'C44gTv7Uvq6W4Ube0HDBI9WIOxDoOJpv',
+        'PORT': '5432',
+    }
 }
 
 
