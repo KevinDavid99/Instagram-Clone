@@ -184,9 +184,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 cloudinary.config(
-    cloud_name = dj_database_url.parse(env('CLOUD_NAME')),
-    api_key = dj_database_url.parse(env('API_KEY')),
-    api_secret = dj_database_url.parse(env('API_SECRET')),
+    cloud_name = env('CLOUD_NAME'),
+    api_key = env('API_KEY'),
+    api_secret = env('API_SECRET'),
     secure = True
 )
 
