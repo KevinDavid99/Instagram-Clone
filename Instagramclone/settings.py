@@ -183,13 +183,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
 cloudinary.config(
-    cloud_name = os.environ.get('CLOUD_NAME'),
-    api_key = os.environ.get('API_KEY'),
-    api_secret = os.environ.get('API_SECRET'),
+    cloud_name = dj_database_url.parse(env('CLOUD_NAME')),
+    api_key = dj_database_url.parse(env('API_KEY')),
+    api_secret = dj_database_url.parse(env('API_SECRET')),
     secure = True
 )
+
+# cloudinary.config(
+#     cloud_name = os.environ.get('CLOUD_NAME'),
+#     api_key = os.environ.get('API_KEY'),
+#     api_secret = os.environ.get('API_SECRET'),
+#     secure = True
+# )
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
