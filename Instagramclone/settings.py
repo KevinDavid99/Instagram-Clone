@@ -60,8 +60,8 @@ AUTH_USER_MODEL = 'instaclone.User'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://kem-instagram-clone.netlify.app',
-    'https://kem-instagram-clone.onrender.com'
+    'https://kem-instaclone.netlify.app',
+    'http://127.0.0.1:8000/'
 ]
 
 
